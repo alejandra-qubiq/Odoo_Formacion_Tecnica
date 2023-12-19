@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Xavier Piernas <xavier.piernas@qubiq.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- book.library form view -->
+<record id="book_library_view_form" model="ir.ui.view">
+    <field name="name">book.library.view.form</field>
+    <field name="model">book.library</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                   <field name="name"/>
+                   <field name="price"/>
+                   <field name="volume"/>
+                   <field name="type"/>
+                   <field name="url"/>
+                   <field name="is_bought"/>
+                   <field name="purchase_date"/>
+                    
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+<!-- book.library tree view -->
+<record id="book_library_view_tree" model="ir.ui.view">
+    <field name="name">book.library.view.tree</field>
+    <field name="model">book.library</field>
+    <field name="arch" type="xml">
+        <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="volume"/>
+                <field name="type"/>
+                <field name="url"/>
+                <field name="is_bought"/>
+                <field name="purchase_date"/>
+            
+        </tree>
+    </field>
+</record>
+    <!-- book.library action window -->
+    <record id="book_library_action" model="ir.actions.act_window">
+        <field name="name">Book Library</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">book.library</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+            No books have been uploaded!
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+
+            </p>
+        </field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="book_library_menu_act" web_icon ="book_library,static/menu_icon.png" name="Book Library" action="book_library_action" sequence="10"/>
+</odoo>

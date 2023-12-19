@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* book_library
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-19 12:42+0000\n"
+"PO-Revision-Date: 2023-12-19 13:57+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. module: book_library
+#: model:ir.actions.act_window,name:book_library.book_library_action
+#: model:ir.ui.menu,name:book_library.book_library_menu_act
+msgid "Book Library"
+msgstr "Biblioteca"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__is_bought
+msgid "Bought"
+msgstr "Comprado"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__purchase_date
+msgid "Date of purchase"
+msgstr "Fecha de compra"
+
+#. module: book_library
+#: model:ir.model.fields.selection,name:book_library.selection__book_library__type__digital
+msgid "Digital"
+msgstr "Versión Digital"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__type
+msgid "Digital/Printed"
+msgstr "Digital/Impreso"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__id
+msgid "ID"
+msgstr "ID"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__write_date
+msgid "Last Updated on"
+msgstr "Última modificacion"
+
+#. module: book_library
+#: model:ir.model,name:book_library.model_book_library
+msgid "Model that registers books"
+msgstr "Modelo que registra libros"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: book_library
+#: model_terms:ir.actions.act_window,help:book_library.book_library_action
+msgid "No books have been uploaded!"
+msgstr "Aun no se ha registrado ningún libro"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__price
+msgid "Price"
+msgstr "Precio"
+
+#. module: book_library
+#: model:ir.model.fields.selection,name:book_library.selection__book_library__type__printed
+msgid "Printed"
+msgstr "Versión impresa"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__url
+msgid "Purchase from"
+msgstr "Comprado en"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__volume
+msgid "Volume"
+msgstr "Edición"
