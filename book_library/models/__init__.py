@@ -3,3 +3,5 @@
 
 
 from . import book_library
+from . import res_partner
+from . import library_book_genre

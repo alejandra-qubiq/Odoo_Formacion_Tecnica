@@ -1,7 +1,7 @@
 # Copyright 2019 Xavier Piernas <xavier.piernas@qubiq.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "book_library",
+    "name": "Book Library",
     "summary": "Book Repository",
     "version": "17.0.1.0.0",
     "category": "Base",
@@ -10,9 +10,13 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [],
+    "depends": ['base'],
     "data": [
-        'views/book_library.xml',
         'security/ir.model.access.csv',
+        'views/res_partner.xml',
+        'views/book_library.xml',
+        'views/library_book_genre.xml',
+        'views/book_library_menus.xml',
+        
         ],
 }

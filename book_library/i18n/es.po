@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-19 12:42+0000\n"
-"PO-Revision-Date: 2023-12-19 13:57+0100\n"
+"POT-Creation-Date: 2023-12-21 09:30+0000\n"
+"PO-Revision-Date: 2023-12-21 10:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,10 +18,32 @@ msgstr ""
 "X-Generator: Poedit 3.4.1\n"
 
 #. module: book_library
+#: model:ir.actions.act_window,name:book_library.res_partner_author_action
+#: model:ir.model.fields,field_description:book_library.field_res_partner__author
+#: model:ir.model.fields,field_description:book_library.field_res_users__author
+msgid "Author"
+msgstr "Autor"
+
+#. module: book_library
+#: model:ir.ui.menu,name:book_library.menu_book_library_authors
+msgid "Authors"
+msgstr "Autores"
+
+#. module: book_library
+#: model:ir.actions.act_window,name:book_library.library_book_genre_action
+msgid "Book Genre"
+msgstr "Género"
+
+#. module: book_library
 #: model:ir.actions.act_window,name:book_library.book_library_action
 #: model:ir.ui.menu,name:book_library.book_library_menu_act
 msgid "Book Library"
 msgstr "Biblioteca"
+
+#. module: book_library
+#: model:ir.ui.menu,name:book_library.menu_book_library_books
+msgid "Books"
+msgstr "Libros"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__is_bought
@@ -29,14 +51,26 @@ msgid "Bought"
 msgstr "Comprado"
 
 #. module: book_library
+#: model:ir.model,name:book_library.model_res_partner
+msgid "Contact"
+msgstr "Contactos"
+
+#. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__create_uid
+#: model:ir.model.fields,field_description:book_library.field_library_book_genre__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__create_date
+#: model:ir.model.fields,field_description:book_library.field_library_book_genre__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: book_library
+#: model:ir.ui.menu,name:book_library.menu_data
+msgid "Data"
+msgstr "Datos"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__purchase_date
@@ -55,23 +89,59 @@ msgstr "Digital/Impreso"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__display_name
+#: model:ir.model.fields,field_description:book_library.field_library_book_genre__display_name
 msgid "Display Name"
 msgstr "Nombre"
 
 #. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_library_book_genre__genre
+msgid "Genre"
+msgstr "Género"
+
+#. module: book_library
+#: model:ir.ui.menu,name:book_library.menu_book_library_genre
+msgid "Genres"
+msgstr "Generos"
+
+#. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__id
+#: model:ir.model.fields,field_description:book_library.field_library_book_genre__id
 msgid "ID"
 msgstr "ID"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__write_uid
+#: model:ir.model.fields,field_description:book_library.field_library_book_genre__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__write_date
+#: model:ir.model.fields,field_description:book_library.field_library_book_genre__write_date
 msgid "Last Updated on"
 msgstr "Última modificacion"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_res_partner__partner
+#: model:ir.model.fields,field_description:book_library.field_res_users__partner
+msgid "Library partner"
+msgstr "Socios"
+
+#. module: book_library
+#: model:ir.actions.act_window,name:book_library.res_partner_member_action
+msgid "Members"
+msgstr "Socios"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_res_partner__partner_number
+#: model:ir.model.fields,field_description:book_library.field_res_users__partner_number
+msgid "Membership number: "
+msgstr "Numero de Socio:"
+
+#. module: book_library
+#: model:ir.model,name:book_library.model_library_book_genre
+msgid "Model that registers book's genres"
+msgstr "Modelo que registra géneros de libro"
 
 #. module: book_library
 #: model:ir.model,name:book_library.model_book_library
@@ -86,7 +156,12 @@ msgstr "Nombre"
 #. module: book_library
 #: model_terms:ir.actions.act_window,help:book_library.book_library_action
 msgid "No books have been uploaded!"
-msgstr "Aun no se ha registrado ningún libro"
+msgstr "Aun no se ha registrado ningún libro!"
+
+#. module: book_library
+#: model_terms:ir.actions.act_window,help:book_library.library_book_genre_action
+msgid "No genrers have been uploaded!"
+msgstr "No hay ningún género subido!"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__price
@@ -102,6 +177,21 @@ msgstr "Versión impresa"
 #: model:ir.model.fields,field_description:book_library.field_book_library__url
 msgid "Purchase from"
 msgstr "Comprado en"
+
+#. module: book_library
+#: model:ir.ui.menu,name:book_library.menu_book_library_subscribers
+msgid "Subscribers"
+msgstr "Socios"
+
+#. module: book_library
+#: model_terms:ir.actions.act_window,help:book_library.res_partner_author_action
+msgid "There arent any authors"
+msgstr "No hay autores"
+
+#. module: book_library
+#: model_terms:ir.actions.act_window,help:book_library.res_partner_member_action
+msgid "There arent any members"
+msgstr "No hay miembros"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__volume

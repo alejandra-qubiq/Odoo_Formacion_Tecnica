@@ -17,7 +17,6 @@
                    <field name="url"/>
                    <field name="is_bought"/>
                    <field name="purchase_date"/>
-                    
                 </group>
             </sheet>
         </form>
@@ -41,6 +40,8 @@
     </field>
 </record>
     <!-- book.library action window -->
+    <!-- action -->
+
     <record id="book_library_action" model="ir.actions.act_window">
         <field name="name">Book Library</field>
         <field name="type">ir.actions.act_window</field>
@@ -58,4 +59,7 @@
     </record>
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="book_library_menu_act" web_icon ="book_library,static/menu_icon.png" name="Book Library" action="book_library_action" sequence="10"/>
+    
+
+
 </odoo>
