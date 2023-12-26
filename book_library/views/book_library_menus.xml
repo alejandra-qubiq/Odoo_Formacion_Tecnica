@@ -12,4 +12,6 @@
             <menuitem id="menu_book_library_genre" parent="book_library.menu_data" action="library_book_genre_action" name="Genres" sequence="2"/> 
             <menuitem id="menu_book_library_authors" parent="book_library.menu_data" action="res_partner_author_action" name="Authors" sequence="3"/>
             <menuitem id="menu_book_library_subscribers" parent="book_library.menu_data" action="res_partner_member_action" name="Subscribers" sequence="4"/>
+            <menuitem id="menu_library_book_component_line" parent="book_library.menu_data" action="library_book_component_line_action" name="Packs" sequence="5"/>
+           
 </odoo>

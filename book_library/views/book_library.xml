@@ -17,7 +17,16 @@
                    <field name="url"/>
                    <field name="is_bought"/>
                    <field name="purchase_date"/>
+                   <field name= "author_id"/>
+                   <field name= "genre_ids" widget="many2many_tags"
+                   />
+                   <field name= "is_pack"/>
                 </group>
+                <notebook invisible="is_pack == False">
+                    <page string="Pack">
+                        <field name= "pack_ids" invisible= "is_pack == False"/>
+                    </page>
+                </notebook>
             </sheet>
         </form>
     </field>
@@ -35,10 +44,30 @@
                 <field name="url"/>
                 <field name="is_bought"/>
                 <field name="purchase_date"/>
+                <field name= "author_id"/>
+                <field name= "genre_ids" 
+                widget="many2many_tags"
+                />
+                <field name= "is_pack"/>
+                
+
             
         </tree>
     </field>
 </record>
+
+<!-- book_library search view -->
+<record id="book_library_view_search" model="ir.ui.view">
+    <field name="name">book.library.view.search</field>
+    <field name="model">book.library</field>
+    <field name="arch" type="xml">
+        <search string="Search Description">
+            <field name="name"/>
+            <filter string="Packs" name="filtro_packs" domain="[('is_pack','!=', False)]"/>
+        </search>
+    </field>
+</record>
+
     <!-- book.library action window -->
     <!-- action -->
 

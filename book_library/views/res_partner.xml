@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+
+
     <!-- res.partner inherit form view -->
     <record id="view_res_partner_form" model="ir.ui.view">
         <field name="name">view.res.partner.form</field>
@@ -9,14 +11,14 @@
         <!-- Add your xpath here -->
         <xpath expr="//field[@name='vat']" position="after">
             <field name="partner"/>
-            <field name="author" position="after"/>
             <field name="partner_number" invisible="partner == False"/>
+            <field name="author" position="after"/>
+            <field name="genre_ids" position="after" invisible= "author == False"/>
         </xpath>
 
         </field>
     </record>
     
-
 <!-- members action window -->
     <record id="res_partner_member_action" model="ir.actions.act_window">
         <field name="name">Members</field>
@@ -32,7 +34,7 @@
         </field>
     </record>
 
-<!-- members action window -->
+<!-- authors action window -->
     <record id="res_partner_author_action" model="ir.actions.act_window">
         <field name="name">Author</field>
         <field name="type">ir.actions.act_window</field>

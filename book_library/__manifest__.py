@@ -10,13 +10,13 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ['base'],
+    "depends": ['base',"product"],
     "data": [
         'security/ir.model.access.csv',
         'views/res_partner.xml',
         'views/book_library.xml',
         'views/library_book_genre.xml',
+        'views/library_book_component_line.xml',
         'views/book_library_menus.xml',
-        
-        ],
+    ],
 }

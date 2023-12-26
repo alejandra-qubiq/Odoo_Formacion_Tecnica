@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_book_library,access.book.library,model_book_library,base.group_user,1,1,1,1
 acces_library_book_genre,acces.library.book.genre,model_library_book_genre,base.group_user,1,1,1,1
+acces_library_book_component_line,acces.library.book.component.line,model_library_book_component_line,base.group_user,1,1,1,1
 
