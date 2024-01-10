@@ -10,7 +10,7 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ['base',"product"],
+    "depends": ['base', "product", "sale"],
     "data": [
         'security/ir.model.access.csv',
         'views/res_partner.xml',

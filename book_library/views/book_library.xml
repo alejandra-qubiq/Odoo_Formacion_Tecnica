@@ -64,6 +64,8 @@
         <search string="Search Description">
             <field name="name"/>
             <filter string="Packs" name="filtro_packs" domain="[('is_pack','!=', False)]"/>
+            <filter string="Saga" name="filtro_packs" domain="[('is_pack','!=', False),('pack_ids.pack_type', '=', 'saga')]"/>
+            <filter string="Collections" name="filtro_packs" domain="[('is_pack','!=', False),('pack_ids.pack_type', '=', 'collection')]"/>
         </search>
     </field>
 </record>

@@ -1,4 +1,5 @@
-from odoo import fields,models
+from odoo import fields, models, api
+
 
 class BookLibrary(models.Model):
     _name = "book.library"
@@ -7,44 +8,50 @@ class BookLibrary(models.Model):
 
     product_tmpl_id = fields.Many2one(
         comodel_name='product.template',
-        string='Product Template'
+        string='Product Template',
     )
-    
-    # #Book name - Lo quitamos porque estamos heredando de product.template
-    # name = fields.Char(string="Name", 
-    # required=True, defaul="Book")
-    
-    
-    # Book price
-    price = fields.Float(string="Price")
-    #Volume
-    volume = fields.Integer(string='Volume')
-    #Printed/Digital
+    price = fields.Float()
+    volume = fields.Integer()
     type = fields.Selection(
         string='Digital/Printed',
-        selection=[('printed', 'Printed'), ('digital', 'Digital')])
-    #URL to purchase
-    url = fields.Char(string="Purchase from")
-    #Check to see if the book was bought already
-    is_bought = fields.Boolean(string='Bought')
-    #Purchase date
+        selection=[
+            ('printed', 'Printed'),
+            ('digital', 'Digital')]
+    )
+    url = fields.Char(
+        string="Purchase from"
+    )
+    is_bought = fields.Boolean(
+        string='Bought'
+    )
     purchase_date = fields.Datetime(
         string='Date of purchase',
         default=fields.Datetime.now,
     )
-     # Agrega el campo Many2one para la relación con el autor
     author_id = fields.Many2one(
         comodel_name='res.partner',
         domain=[('author', '=', True)],
         help="Select the author of the book."
     )
-    
     genre_ids = fields.Many2many(
         comodel_name='library.book.genre',
     )
-    
     is_pack = fields.Boolean(
         string='Pack',
     )
-    
-    pack_ids = fields.Many2one('library.book.component.line', string='Packs',)
+    pack_ids = fields.Many2one(
+        'library.book.component.line',
+        string='Packs',
+    )
+
+    @api.onchange('author_id')
+    def _onchange_author_id(self):
+        if self.author_id.genre_ids:
+            self.genre_ids = self.author_id.genre_ids
+
+    @api.model
+    def create(self, vals):
+        product_template = super().create(vals)
+        if product_template.detailed_type == 'consu':
+            product_template.write({'detailed_type': 'product'})
+        return product_template
