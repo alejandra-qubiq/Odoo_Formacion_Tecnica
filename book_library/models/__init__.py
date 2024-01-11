@@ -7,3 +7,4 @@ from . import res_partner
 from . import library_book_genre
 from . import library_book_component_line
 from . import sale_order
+from . import library_audit

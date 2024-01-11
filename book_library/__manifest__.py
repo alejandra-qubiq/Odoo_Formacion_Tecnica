@@ -13,6 +13,8 @@
     "depends": ['base', "product", "sale"],
     "data": [
         'security/ir.model.access.csv',
+        'security/security.xml',
+        'views/library_audit.xml',
         'views/res_partner.xml',
         'views/book_library.xml',
         'views/library_book_genre.xml',
