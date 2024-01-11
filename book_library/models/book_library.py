@@ -1,3 +1,5 @@
+# Copyright 2024 Alejandra García <alejandra.gracia@qubiq.es>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import fields, models, api
 
 
@@ -49,7 +51,7 @@ class BookLibrary(models.Model):
         if self.author_id.genre_ids:
             self.genre_ids = self.author_id.genre_ids
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
         product_template = super().create(vals)
         if product_template.detailed_type == 'consu':

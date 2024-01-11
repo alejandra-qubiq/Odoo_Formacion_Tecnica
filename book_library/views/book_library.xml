@@ -45,13 +45,13 @@
                 <field name="is_bought"/>
                 <field name="purchase_date"/>
                 <field name= "author_id"/>
-                <field name= "genre_ids" 
+                <field name= "genre_ids"
                 widget="many2many_tags"
                 />
                 <field name= "is_pack"/>
-                
 
-            
+
+
         </tree>
     </field>
 </record>
@@ -64,8 +64,8 @@
         <search string="Search Description">
             <field name="name"/>
             <filter string="Packs" name="filtro_packs" domain="[('is_pack','!=', False)]"/>
-            <filter string="Saga" name="filtro_packs" domain="[('is_pack','!=', False),('pack_ids.pack_type', '=', 'saga')]"/>
-            <filter string="Collections" name="filtro_packs" domain="[('is_pack','!=', False),('pack_ids.pack_type', '=', 'collection')]"/>
+            <filter string="Saga" name="filtro_packs" domain="[('is_pack','!=', False), ('pack_ids.pack_type', '=', 'saga')]"/>
+            <filter string="Collections" name="filtro_packs" domain="[('is_pack','!=', False), ('pack_ids.pack_type', '=', 'collection')]"/>
         </search>
     </field>
 </record>
@@ -90,7 +90,7 @@
     </record>
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="book_library_menu_act" web_icon ="book_library,static/menu_icon.png" name="Book Library" action="book_library_action" sequence="10"/>
-    
+
 
 
 </odoo>

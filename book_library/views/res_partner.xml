@@ -17,11 +17,11 @@
                 <field name="partner"/>
                 <field name="partner_number" invisible="partner == False"/>
                 <field name="author" position="after"/>
-                <field name="genre_ids" position="after" invisible= "author == False"/>
+                <field name="genre_ids" position="after" invisible="author == False"/>
             </xpath>
         </field>
     </record>
-    
+
 <!-- members action window -->
     <record id="res_partner_member_action" model="ir.actions.act_window">
         <field name="name">Members</field>
