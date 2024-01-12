@@ -7,7 +7,10 @@ class LibraryBookComponentLine(models.Model):
     _name = "library.book.component.line"
     _description = "Model that registers book's components"
 
-    name = fields.Char(string="Packs", required=True)
+    name = fields.Char(
+        string="Packs",
+        required=True
+    )
     pack_type = fields.Selection(
         string="Type",
         selection=[

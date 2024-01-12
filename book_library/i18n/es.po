@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-10 09:56+0000\n"
-"PO-Revision-Date: 2024-01-10 11:57+0100\n"
+"POT-Creation-Date: 2024-01-12 12:37+0000\n"
+"PO-Revision-Date: 2024-01-12 13:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -23,13 +23,23 @@ msgid "# Product Variants"
 msgstr "Variantes de Producto"
 
 #. module: book_library
+#: model:ir.actions.report,print_report_name:book_library.books_report
+msgid "(\"Libro - \" + object.name)"
+msgstr ""
+
+#. module: book_library
+#: model_terms:ir.ui.view,arch_db:book_library.sale_report_inherit
+msgid "<strong>Memership number:</strong><br/>"
+msgstr ""
+
+#. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__description_sale
 msgid ""
-"A description of the Product that you want to communicate to your customers. This description will "
-"be copied to every Sales Order, Delivery Order and Customer Invoice/Credit Note"
+"A description of the Product that you want to communicate to your customers. This description will be copied to every Sales Order, "
+"Delivery Order and Customer Invoice/Credit Note"
 msgstr ""
-"Una descripción del producto que desea comunicar a sus clientes. Esta descripción se copiará en "
-"cada Orden de Venta, Orden de Entrega y Factura/Nota de Crédito al Cliente."
+"Una descripción del producto que desea comunicar a sus clientes. Esta descripción se copiará en cada Orden de Venta, Orden de Entrega "
+"y Factura/Nota de Crédito al Cliente."
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__detailed_type
@@ -38,8 +48,7 @@ msgid ""
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
-"Un producto almacenable es un producto para el cual se gestiona el inventario. La aplicación de "
-"inventario debe estar instalada.\n"
+"Un producto almacenable es un producto para el cual se gestiona el inventario. La aplicación de inventario debe estar instalada.\n"
 "Un producto consumible es un producto para el cual no se gestiona el inventario.\n"
 "Un servicio es un producto no material que proporcionas."
 
@@ -79,9 +88,20 @@ msgid "Activity Type Icon"
 msgstr "Icono del tipo de actividad"
 
 #. module: book_library
+#: model:res.groups,name:book_library.group_book_library
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__message_attachment_count
 msgid "Attachment Count"
 msgstr "Cuenta de Adjuntos"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__record_id
+#: model:ir.ui.menu,name:book_library.menu_book_library_audit
+msgid "Audit"
+msgstr "Auditoria"
 
 #. module: book_library
 #: model:ir.actions.act_window,name:book_library.res_partner_author_action
@@ -102,13 +122,18 @@ msgid "Barcode"
 msgstr "Codigo de Barras"
 
 #. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_library_audit__book_id
+msgid "Book"
+msgstr "Libro"
+
+#. module: book_library
 #: model:ir.actions.act_window,name:book_library.library_book_genre_action
 msgid "Book Genre"
 msgstr "Género"
 
 #. module: book_library
 #: model:ir.actions.act_window,name:book_library.book_library_action
-#: model:ir.ui.menu,name:book_library.book_library_menu_act
+#: model:ir.module.category,name:book_library.module_category_library_book model:ir.ui.menu,name:book_library.book_library_menu_act
 msgid "Book Library"
 msgstr "Biblioteca"
 
@@ -156,7 +181,7 @@ msgstr "Colleciones"
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__color
 msgid "Color Index"
-msgstr "Color Index"
+msgstr "Índice de colores"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__company_id
@@ -190,6 +215,7 @@ msgstr "Método de Coste"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__create_uid
+#: model:ir.model.fields,field_description:book_library.field_library_audit__create_uid
 #: model:ir.model.fields,field_description:book_library.field_library_book_component_line__create_uid
 #: model:ir.model.fields,field_description:book_library.field_library_book_genre__create_uid
 msgid "Created by"
@@ -197,6 +223,7 @@ msgstr "Creado por"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__create_date
+#: model:ir.model.fields,field_description:book_library.field_library_audit__create_date
 #: model:ir.model.fields,field_description:book_library.field_library_book_component_line__create_date
 #: model:ir.model.fields,field_description:book_library.field_library_book_genre__create_date
 msgid "Created on"
@@ -223,6 +250,11 @@ msgid "Data"
 msgstr "Datos"
 
 #. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_library_audit__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__purchase_date
 msgid "Date of purchase"
 msgstr "Fecha de compra"
@@ -244,30 +276,27 @@ msgstr "Unidad de medida por defecto para todas las operaciones de stock"
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__uom_po_id
-msgid ""
-"Default unit of measure used for purchase orders. It must be in the same category as the default "
-"unit of measure."
+msgid "Default unit of measure used for purchase orders. It must be in the same category as the default unit of measure."
 msgstr ""
-"\"Unidad de medida predeterminada utilizada para órdenes de compra. Debe estar en la misma "
-"categoría que la unidad de medida predeterminada.\""
+"\"Unidad de medida predeterminada utilizada para órdenes de compra. Debe estar en la misma categoría que la unidad de medida "
+"predeterminada.\""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__sale_delay
 msgid ""
-"Delivery lead time, in days. It's the number of days, promised to the customer, between the "
-"confirmation of the sales order and the delivery."
+"Delivery lead time, in days. It's the number of days, promised to the customer, between the confirmation of the sales order and the "
+"delivery."
 msgstr ""
-"\"Tiempo de entrega, en días. Es el número de días prometido al cliente entre la confirmación de la "
-"orden de venta y la entrega.\""
+"\"Tiempo de entrega, en días. Es el número de días prometido al cliente entre la confirmación de la orden de venta y la entrega.\""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__route_ids
 msgid ""
-"Depending on the modules installed, this will allow you to define the route of the product: whether "
-"it will be bought, manufactured, replenished on order, etc."
+"Depending on the modules installed, this will allow you to define the route of the product: whether it will be bought, manufactured, "
+"replenished on order, etc."
 msgstr ""
-"\"Dependiendo de los módulos instalados, esto le permitirá definir la ruta del producto: ya sea si "
-"se comprará, fabricará, repondrá bajo pedido, etc.\""
+"\"Dependiendo de los módulos instalados, esto le permitirá definir la ruta del producto: ya sea si se comprará, fabricará, repondrá "
+"bajo pedido, etc.\""
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__description
@@ -301,6 +330,7 @@ msgstr "Digital/Impreso"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__display_name
+#: model:ir.model.fields,field_description:book_library.field_library_audit__display_name
 #: model:ir.model.fields,field_description:book_library.field_library_book_component_line__display_name
 #: model:ir.model.fields,field_description:book_library.field_library_book_genre__display_name
 msgid "Display Name"
@@ -365,15 +395,15 @@ msgstr "Cantidad prevista"
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__genre_ids
 #: model:ir.model.fields,field_description:book_library.field_library_book_genre__name
-#: model:ir.model.fields,field_description:book_library.field_res_partner__genre_ids
-#: model:ir.model.fields,field_description:book_library.field_res_users__genre_ids
 msgid "Genre"
 msgstr "Genero"
 
 #. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_res_partner__genre_ids
+#: model:ir.model.fields,field_description:book_library.field_res_users__genre_ids
 #: model:ir.ui.menu,name:book_library.menu_book_library_genre
 msgid "Genres"
-msgstr "Generos"
+msgstr "Genero"
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__packaging_ids
@@ -392,10 +422,11 @@ msgstr "Tiene un mensaje"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__id
+#: model:ir.model.fields,field_description:book_library.field_library_audit__id
 #: model:ir.model.fields,field_description:book_library.field_library_book_component_line__id
 #: model:ir.model.fields,field_description:book_library.field_library_book_genre__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__activity_exception_icon
@@ -446,7 +477,7 @@ msgstr "Imagen 256"
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__image_512
 msgid "Image 512"
-msgstr "Image 512"
+msgstr "Imagen 512"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__property_account_income_id
@@ -496,19 +527,16 @@ msgstr "Es una variante del producto"
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__property_account_income_id
 msgid "Keep this field empty to use the default value from the product category."
-msgstr ""
-"\"Mantenga este campo vacío para utilizar el valor predeterminado de la categoría de producto.\""
+msgstr "\"Mantenga este campo vacío para utilizar el valor predeterminado de la categoría de producto.\""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__property_account_expense_id
 msgid ""
-"Keep this field empty to use the default value from the product category. If anglo-saxon accounting "
-"with automated valuation method is configured, the expense account on the product category will be "
-"used."
+"Keep this field empty to use the default value from the product category. If anglo-saxon accounting with automated valuation method "
+"is configured, the expense account on the product category will be used."
 msgstr ""
-"\"Mantenga este campo vacío para utilizar el valor predeterminado de la categoría de producto. Si "
-"se configura la contabilidad anglosajona con un método de valoración automatizado, se utilizará la "
-"cuenta de gastos de la categoría de producto.\""
+"\"Mantenga este campo vacío para utilizar el valor predeterminado de la categoría de producto. Si se configura la contabilidad "
+"anglosajona con un método de valoración automatizado, se utilizará la cuenta de gastos de la categoría de producto.\""
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_res_partner__last_name
@@ -518,6 +546,7 @@ msgstr "Apellido"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__write_uid
+#: model:ir.model.fields,field_description:book_library.field_library_audit__write_uid
 #: model:ir.model.fields,field_description:book_library.field_library_book_component_line__write_uid
 #: model:ir.model.fields,field_description:book_library.field_library_book_genre__write_uid
 msgid "Last Updated by"
@@ -525,6 +554,7 @@ msgstr "Última actualización por"
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__write_date
+#: model:ir.model.fields,field_description:book_library.field_library_audit__write_date
 #: model:ir.model.fields,field_description:book_library.field_library_book_component_line__write_date
 #: model:ir.model.fields,field_description:book_library.field_library_book_genre__write_date
 msgid "Last Updated on"
@@ -545,28 +575,23 @@ msgstr "Localizacion"
 #: model:ir.model.fields,help:book_library.field_book_library__valuation
 msgid ""
 "Manual: The accounting entries to value the inventory are not posted automatically.\n"
-"        Automated: An accounting entry is automatically created to value the inventory when a "
-"product enters or leaves the company.\n"
+"        Automated: An accounting entry is automatically created to value the inventory when a product enters or leaves the company.\n"
 "        "
 msgstr ""
 "\"Manual: Las entradas contables para valorar el inventario no se registran automáticamente.\n"
-"Automatizado: Una entrada contable se crea automáticamente para valorar el inventario cuando un "
-"producto entra o sale de la empresa.\""
+"Automatizado: Una entrada contable se crea automáticamente para valorar el inventario cuando un producto entra o sale de la empresa.\""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__service_type
 msgid ""
-"Manually set quantities on order: Invoice based on the manually entered quantity, without creating "
-"an analytic account.\n"
+"Manually set quantities on order: Invoice based on the manually entered quantity, without creating an analytic account.\n"
 "Timesheets on contract: Invoice based on the tracked hours on the related timesheet.\n"
 "Create a task and track hours: Create a task on the sales order validation and track the work hours."
 msgstr ""
-"\"Establecer manualmente cantidades en pedido: Facturar en función de la cantidad introducida "
-"manualmente, sin crear una cuenta analítica.\n"
-"Partes de horas en contrato: Facturar en función de las horas registradas en la hoja de horas "
-"relacionada.\n"
-"Crear una tarea y registrar horas: Crear una tarea al validar la orden de venta y registrar las "
-"horas de trabajo.\""
+"\"Establecer manualmente cantidades en pedido: Facturar en función de la cantidad introducida manualmente, sin crear una cuenta "
+"analítica.\n"
+"Partes de horas en contrato: Facturar en función de las horas registradas en la hoja de horas relacionada.\n"
+"Crear una tarea y registrar horas: Crear una tarea al validar la orden de venta y registrar las horas de trabajo.\""
 
 #. module: book_library
 #: model:ir.actions.act_window,name:book_library.res_partner_member_action
@@ -598,6 +623,11 @@ msgstr "\"Mensaje para la línea de la orden de venta.\""
 #: model:ir.model.fields,field_description:book_library.field_book_library__message_ids
 msgid "Messages"
 msgstr "Mensajes"
+
+#. module: book_library
+#: model:ir.model,name:book_library.model_library_audit
+msgid "Model that recirds library audits"
+msgstr "Modelo que recoge auditorías de libros"
 
 #. module: book_library
 #: model:ir.model,name:book_library.model_library_book_component_line
@@ -703,6 +733,11 @@ msgid ""
 msgstr ""
 
 #. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_library_audit__operation
+msgid "Operation"
+msgstr ""
+
+#. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__invoice_policy
 msgid ""
 "Ordered Quantity: Invoice quantities ordered by the customer.\n"
@@ -742,6 +777,11 @@ msgstr ""
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__list_price
 msgid "Price at which the product is sold to customers."
+msgstr ""
+
+#. module: book_library
+#: model:ir.actions.report,name:book_library.books_report
+msgid "Print Portfolios"
 msgstr ""
 
 #. module: book_library
@@ -802,6 +842,11 @@ msgstr ""
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__product_properties
 msgid "Properties"
+msgstr ""
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__published_year
+msgid "Published year"
 msgstr ""
 
 #. module: book_library
@@ -924,14 +969,18 @@ msgstr ""
 #: model:ir.model.fields,help:book_library.field_book_library__purchase_line_warn
 #: model:ir.model.fields,help:book_library.field_book_library__sale_line_warn
 msgid ""
-"Selecting the \"Warning\" option will notify user with the message, Selecting \"Blocking Message\" "
-"will throw an exception with the message and block the flow. The Message has to be written in the "
-"next field."
+"Selecting the \"Warning\" option will notify user with the message, Selecting \"Blocking Message\" will throw an exception with the "
+"message and block the flow. The Message has to be written in the next field."
 msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__sequence
 msgid "Sequence"
+msgstr ""
+
+#. module: book_library
+#: model:ir.ui.menu,name:book_library.menu_settings
+msgid "Settings"
 msgstr ""
 
 #. module: book_library
@@ -954,8 +1003,7 @@ msgstr ""
 msgid ""
 "Standard Price: The products are valued at their standard cost defined on the product.\n"
 "        Average Cost (AVCO): The products are valued at weighted average cost.\n"
-"        First In First Out (FIFO): The products are valued supposing those that enter the company "
-"first will also leave it first.\n"
+"        First In First Out (FIFO): The products are valued supposing those that enter the company first will also leave it first.\n"
 "        "
 msgstr ""
 
@@ -972,6 +1020,11 @@ msgstr ""
 #: model:ir.ui.menu,name:book_library.menu_book_library_subscribers
 msgid "Subscribers"
 msgstr "Socios"
+
+#. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_book_library__synopsis
+msgid "Synopsis"
+msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__account_tag_ids
@@ -996,29 +1049,27 @@ msgstr "No hay miembros"
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__property_account_creditor_price_difference
 msgid ""
-"This account is used in automated inventory valuation to record the price difference between a "
-"purchase order and its related vendor bill when validating this vendor bill."
+"This account is used in automated inventory valuation to record the price difference between a purchase order and its related vendor "
+"bill when validating this vendor bill."
 msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__property_stock_production
 msgid ""
-"This stock location will be used, instead of the default one, as the source location for stock "
-"moves generated by manufacturing orders."
+"This stock location will be used, instead of the default one, as the source location for stock moves generated by manufacturing "
+"orders."
 msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__property_stock_inventory
 msgid ""
-"This stock location will be used, instead of the default one, as the source location for stock "
-"moves generated when you do an inventory."
+"This stock location will be used, instead of the default one, as the source location for stock moves generated when you do an "
+"inventory."
 msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__responsible_id
-msgid ""
-"This user will be responsible of the next activities related to logistic operations for this "
-"product."
+msgid "This user will be responsible of the next activities related to logistic operations for this product."
 msgstr ""
 
 #. module: book_library
@@ -1052,14 +1103,18 @@ msgid "Unit of Measure Name"
 msgstr ""
 
 #. module: book_library
+#: model:ir.model.fields,field_description:book_library.field_library_audit__user_id
+msgid "User"
+msgstr ""
+
+#. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__valid_product_template_attribute_line_ids
 msgid "Valid Product Attribute Lines"
 msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__expense_policy
-msgid ""
-"Validated expenses and vendor bills can be re-invoiced to a customer at its cost or sales price."
+msgid "Validated expenses and vendor bills can be re-invoiced to a customer at its cost or sales price."
 msgstr ""
 
 #. module: book_library
@@ -1118,4 +1173,24 @@ msgstr ""
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__weight_uom_name
 msgid "Weight unit of measure label"
+msgstr ""
+
+#. module: book_library
+#: model:ir.model.fields.selection,name:book_library.selection__library_audit__operation__create
+msgid "create"
+msgstr ""
+
+#. module: book_library
+#: model:ir.actions.act_window,name:book_library.library_audit_action
+msgid "library audit action"
+msgstr ""
+
+#. module: book_library
+#: model:ir.model.fields.selection,name:book_library.selection__library_audit__operation__unlink
+msgid "unlink"
+msgstr ""
+
+#. module: book_library
+#: model:ir.model.fields.selection,name:book_library.selection__library_audit__operation__write
+msgid "write"
 msgstr ""

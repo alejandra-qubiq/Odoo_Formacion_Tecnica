@@ -8,4 +8,6 @@ class LibraryBookGenre(models.Model):
     _description = "Model that registers book's genres"
 
     # Genre name
-    name = fields.Char(string="Genre")
+    name = fields.Char(
+        string="Genre"
+    )

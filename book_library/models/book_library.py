@@ -18,7 +18,7 @@ class BookLibrary(models.Model):
         string='Price',
     )
     volume = fields.Integer(
-        string='Volume'
+        string='Volume',
     )
     type = fields.Selection(
         string='Digital/Printed',
@@ -54,7 +54,19 @@ class BookLibrary(models.Model):
     record_id = fields.One2many(
         comodel_name='library.audit',
         inverse_name='book_id',
-        string='Audit')
+        string='Audit'
+    )
+    synopsis = fields.Html(
+        string='Synopsis',
+    )
+    published_year = fields.Integer(
+        string='Published year',
+    )
+
+    @api.onchange('is_pack')
+    def _onchange_is_pack(self):
+        if self.is_pack:
+            self.pack_ids = self.env['library.book.component.line']
 
     @api.onchange('author_id')
     def _onchange_author_id(self):

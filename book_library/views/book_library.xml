@@ -10,17 +10,27 @@
         <form>
             <sheet>
                 <group>
-                   <field name="name"/>
-                   <field name="price"/>
-                   <field name="volume"/>
-                   <field name="type"/>
-                   <field name="url"/>
-                   <field name="is_bought"/>
-                   <field name="purchase_date"/>
-                   <field name= "author_id"/>
-                   <field name= "genre_ids" widget="many2many_tags"
-                   />
-                   <field name= "is_pack"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="volume"/>
+                        <field name="published_year" widget="integer"/>
+                        <field name="type"/>
+                        <field name="url"/>
+                    </group>
+                    <group>
+                        <field name="is_bought"/>
+                        <field name="purchase_date"/>
+                        <field name= "author_id"/>
+                        <field name= "genre_ids" widget="many2many_tags"/>
+                        <field name= "is_pack"/>
+                    </group>
+                    <group>
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
+                    </group>
+                    <group>
+                        <field name="synopsis"/>
+                    </group>
                 </group>
                 <notebook invisible="is_pack == False">
                     <page string="Pack">
