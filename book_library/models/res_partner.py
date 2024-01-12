@@ -17,7 +17,9 @@ class ResPartner(models.Model):
     partner = fields.Boolean(
         string='Library partner'
     )
-    author = fields.Boolean()
+    author = fields.Boolean(
+        string='Author'
+    )
     partner_number = fields.Integer(
         string='Membership number: '
     )

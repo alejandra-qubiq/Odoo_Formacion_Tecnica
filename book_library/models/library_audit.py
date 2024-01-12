@@ -12,7 +12,9 @@ class LibraryAudit(models.Model):
                    ('write', 'write'),
                    ('unlink', 'unlink')],
     )
-    date = fields.Datetime()
+    date = fields.Datetime(
+        string='Date'
+    )
     user_id = fields.Many2one(
         comodel_name='res.users',
         string='User'

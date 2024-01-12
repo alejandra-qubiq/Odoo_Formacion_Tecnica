@@ -14,8 +14,12 @@ class BookLibrary(models.Model):
         comodel_name='product.template',
         string='Product Template',
     )
-    price = fields.Float()
-    volume = fields.Integer()
+    price = fields.Float(
+        string='Price',
+    )
+    volume = fields.Integer(
+        string='Volume'
+    )
     type = fields.Selection(
         string='Digital/Printed',
         selection=[
@@ -47,7 +51,10 @@ class BookLibrary(models.Model):
         'library.book.component.line',
         string='Packs',
     )
-    record_id = fields.One2many(comodel_name='library.audit', inverse_name='book_id', string='Audit')
+    record_id = fields.One2many(
+        comodel_name='library.audit',
+        inverse_name='book_id',
+        string='Audit')
 
     @api.onchange('author_id')
     def _onchange_author_id(self):
