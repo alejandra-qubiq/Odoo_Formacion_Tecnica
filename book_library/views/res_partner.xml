@@ -8,17 +8,20 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-        <!-- Add your xpath here -->
-        <xpath expr="//field[@name='vat']" position="after">
-            <field name="partner"/>
-            <field name="partner_number" invisible="partner == False"/>
-            <field name="author" position="after"/>
-            <field name="genre_ids" position="after" invisible= "author == False"/>
-        </xpath>
-
+        <!-- Add your xpath here company-->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="first_name"/>
+                <field name="last_name"/>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="partner"/>
+                <field name="partner_number" invisible="partner == False"/>
+                <field name="author" position="after"/>
+                <field name="genre_ids" position="after" invisible="author == False"/>
+            </xpath>
         </field>
     </record>
-    
+
 <!-- members action window -->
     <record id="res_partner_member_action" model="ir.actions.act_window">
         <field name="name">Members</field>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="books_report" model="ir.actions.report">
+            <field name="name">Print Portfolios</field>
+            <field name="model">book.library</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">book_library.record_book_custom</field>
+            <field name="report_file">library_module.record_book_custom</field>
+            <field name="print_report_name">("Book - " + object.name)</field>
+            <field name="binding_model_id" ref="model_book_library"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

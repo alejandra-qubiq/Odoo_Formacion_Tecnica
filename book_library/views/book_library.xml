@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2019 Xavier Piernas <xavier.piernas@qubiq.es>
+<!-- Copyright 2024 Alejandra Garcia <alejandra.garcia@qubiq.es>
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
 <!-- book.library form view -->
@@ -10,17 +10,27 @@
         <form>
             <sheet>
                 <group>
-                   <field name="name"/>
-                   <field name="price"/>
-                   <field name="volume"/>
-                   <field name="type"/>
-                   <field name="url"/>
-                   <field name="is_bought"/>
-                   <field name="purchase_date"/>
-                   <field name= "author_id"/>
-                   <field name= "genre_ids" widget="many2many_tags"
-                   />
-                   <field name= "is_pack"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="volume"/>
+                        <field name="published_year" widget="integer"/>
+                        <field name="type"/>
+                        <field name="url"/>
+                    </group>
+                    <group>
+                        <field name="is_bought"/>
+                        <field name="purchase_date"/>
+                        <field name= "author_id"/>
+                        <field name= "genre_ids" widget="many2many_tags"/>
+                        <field name= "is_pack"/>
+                    </group>
+                    <group>
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
+                    </group>
+                    <group>
+                        <field name="synopsis"/>
+                    </group>
                 </group>
                 <notebook invisible="is_pack == False">
                     <page string="Pack">
@@ -45,13 +55,13 @@
                 <field name="is_bought"/>
                 <field name="purchase_date"/>
                 <field name= "author_id"/>
-                <field name= "genre_ids" 
+                <field name= "genre_ids"
                 widget="many2many_tags"
                 />
                 <field name= "is_pack"/>
-                
 
-            
+
+
         </tree>
     </field>
 </record>
@@ -64,6 +74,8 @@
         <search string="Search Description">
             <field name="name"/>
             <filter string="Packs" name="filtro_packs" domain="[('is_pack','!=', False)]"/>
+            <filter string="Saga" name="filtro_packs" domain="[('is_pack','!=', False), ('pack_ids.pack_type', '=', 'saga')]"/>
+            <filter string="Collections" name="filtro_packs" domain="[('is_pack','!=', False), ('pack_ids.pack_type', '=', 'collection')]"/>
         </search>
     </field>
 </record>
@@ -88,7 +100,7 @@
     </record>
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="book_library_menu_act" web_icon ="book_library,static/menu_icon.png" name="Book Library" action="book_library_action" sequence="10"/>
-    
+
 
 
 </odoo>

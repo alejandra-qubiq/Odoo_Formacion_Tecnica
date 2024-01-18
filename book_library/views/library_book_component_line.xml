@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <!-- book.library tree view -->
+    <!-- book.library form view -->
     <record id="library_book_component_line_view_form" model="ir.ui.view">
         <field name="name">library.book.component.line.view.form</field>
         <field name="model">library.book.component.line</field>
@@ -10,6 +10,7 @@
                 <sheet>
                     <field name="name"/>
                     <field name="book_id"/>
+                    <field name="pack_type"/>
                 </sheet>
             </form>
         </field>
@@ -23,6 +24,7 @@
             <tree>
                 <field name="name"/>
                 <field name="book_id" widget="many2many_tags"/>
+                <field name="pack_type"/>
             </tree>
         </field>
     </record>
