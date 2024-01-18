@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 12:37+0000\n"
-"PO-Revision-Date: 2024-01-12 13:39+0100\n"
+"POT-Creation-Date: 2024-01-18 08:28+0000\n"
+"PO-Revision-Date: 2024-01-18 09:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -24,13 +24,13 @@ msgstr "Variantes de Producto"
 
 #. module: book_library
 #: model:ir.actions.report,print_report_name:book_library.books_report
-msgid "(\"Libro - \" + object.name)"
-msgstr ""
+msgid "(\"Book - \" + object.name)"
+msgstr "(\"Libro - \" + object.name)"
 
 #. module: book_library
 #: model_terms:ir.ui.view,arch_db:book_library.sale_report_inherit
-msgid "<strong>Memership number:</strong><br/>"
-msgstr ""
+msgid "<strong>Membership number:</strong><br/>"
+msgstr "<strong>Numero de socio:</strong><br/>"
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__description_sale
@@ -181,7 +181,7 @@ msgstr "Colleciones"
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__color
 msgid "Color Index"
-msgstr "Índice de colores"
+msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__company_id
@@ -477,7 +477,7 @@ msgstr "Imagen 256"
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__image_512
 msgid "Image 512"
-msgstr "Imagen 512"
+msgstr ""
 
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__property_account_income_id
@@ -1024,7 +1024,7 @@ msgstr "Socios"
 #. module: book_library
 #: model:ir.model.fields,field_description:book_library.field_book_library__synopsis
 msgid "Synopsis"
-msgstr ""
+msgstr "Sipnosis"
 
 #. module: book_library
 #: model:ir.model.fields,help:book_library.field_book_library__account_tag_ids
@@ -1183,7 +1183,7 @@ msgstr ""
 #. module: book_library
 #: model:ir.actions.act_window,name:book_library.library_audit_action
 msgid "library audit action"
-msgstr ""
+msgstr "Accion de auditoria de libros"
 
 #. module: book_library
 #: model:ir.model.fields.selection,name:book_library.selection__library_audit__operation__unlink
@@ -1193,4 +1193,4 @@ msgstr ""
 #. module: book_library
 #: model:ir.model.fields.selection,name:book_library.selection__library_audit__operation__write
 msgid "write"
-msgstr ""
+msgstr "escribir"
