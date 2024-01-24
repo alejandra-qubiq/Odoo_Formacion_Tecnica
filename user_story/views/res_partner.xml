@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+
+    <!-- res.partner inherit form view -->
+    <record id="view_res_partner_form" model="ir.ui.view">
+        <field name="name">view.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+        <!-- Add your xpath here company-->
+            <xpath expr="//page[@name='sales_purchases']/group[@name='container_row_2']/group[@name='sale']/field[@name='user_id']" position="after">
+                <field name="is_sales_person"/>
+                <field name="sales_number" invisible="is_sales_person == False"/>
+                <field name="commission" position="after" invisible="is_sales_person == False"/>
+            </xpath>
+        </field>
+    </record>
+
+        <!-- Search view to add a filter for is_sales_person -->
+    <record id="view_res_partner_search" model="ir.ui.view">
+        <field name="name">view.res.partner.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='type_person']" position="after">
+                <filter string="Sales Persons" name="sales_person_filter" domain="[('is_sales_person','=',True)]"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
