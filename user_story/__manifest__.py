@@ -13,6 +13,7 @@
     "depends": ['base', 'sale'],
     "data": [
         'views/res_partner.xml',
+        'views/report_sales.xml',
         'views/sale_order.xml',
         "security/ir.model.access.csv",
     ],
