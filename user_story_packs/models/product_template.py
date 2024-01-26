@@ -18,21 +18,20 @@ class ProductTemplate(models.Model):
                    ('component_total', 'Sum Components')],
         default="normal_price")
 
-    list_price = fields.Float(
+    total_price = fields.Float(
         compute="_compute_price",
         store=True,
         readonly=False,
         )
 
-    @api.depends('price_pack_method')
+    @api.depends('price_pack_method', 'component_line_ids')
     def _compute_price(self):
         for line in self:
             if line.price_pack_method == "component_total":
                 total = 0.0
                 for component in line.component_line_ids:
-                    total += component.price
-                line.list_price = total
+                    total += component.price*component.quantity
+                line.total_price = total
             else:
-                line.list_price = line.list_price
-
+                line.total_price = line.list_price
 

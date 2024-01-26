@@ -3,15 +3,16 @@
 from odoo import models, api, _
 
 
-class SaleOrderLine(models.Model):
-    _inherit = "sale.order.line"
+class SaleOrder(models.Model):
+    _inherit = 'sale.order.line'
 
     @api.onchange('product_id')
     def _compute_name(self):
-        res = super(SaleOrderLine, self)._compute_name()
-        if self.product_id and self.product_id.is_pack:
-            self.name += _('\n--Components--')
-            for component in self.product_id.component_line_ids:
-                self.name += '\n %s - %i' % (component.component_line_ids.name,
-                                             component.quantity)
+        res = super()._compute_name()
+        if self.product_id and self.product_id.is_pack and \
+           self.product_id.component_line_ids:
+            self.name += _('\n-- Components --')
+            for line in self.product_id.component_line_ids:
+                self.name += '\n %s - %i' % (line.component_id.name,
+                                             line.quantity)
         return res
