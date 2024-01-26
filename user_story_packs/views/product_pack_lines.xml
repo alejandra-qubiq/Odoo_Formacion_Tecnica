@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- pack.product.lines search view-->
+    <record id="product_pack_lines_view_search" model="ir.ui.view">
+        <field name="name">product.pack.lines.view.search</field>
+        <field name="model">product.pack.lines</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <filter name="pack" string="Pack Product" context="{'group_by':'product_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- pack.product.lines tree view -->
+    <record id="pack_product_lines_view_tree" model="ir.ui.view">
+        <field name="name">product.pack.lines.view.tree</field>
+        <field name="model">product.pack.lines</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="component_id"/>
+                <field name="quantity"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- product.pack.lines action window -->
+    <record id="product_pack_lines_action" model="ir.actions.act_window">
+        <field name="name">product_pack</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.pack.lines</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('product_id.is_pack', '=', True)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                You don't have any packs yet!
+            </p>
+        </field>
+    </record>
+
+    <!--Submenu pack-->
+    <menuitem id="menu_pack" parent="sale.product_menu_catalog" name="Pack Components" action="product_pack_lines_action" sequence="3"/>
+</odoo>
