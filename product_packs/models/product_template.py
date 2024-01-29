@@ -1,3 +1,5 @@
+# Copyright 2024 Alejandra García <alejandra.gracia@qubiq.es>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import fields, models, api
 
 
@@ -34,4 +36,3 @@ class ProductTemplate(models.Model):
                 line.total_price = total
             else:
                 line.total_price = line.list_price
-

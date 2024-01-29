@@ -1,10 +1,10 @@
-# Copyright 2019 Xavier Piernas <xavier.piernas@qubiq.es>
+# Copyright 2024 Alejandra García <alejandra.gracia@qubiq.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "User Story Packs",
-    "summary": "User Stories Packs",
+    "name": "Product Packs",
+    "summary": "Product Packs",
     "version": "17.0.1.0.0",
-    "category": "Base",
+    "category": "sale",
     "website": "https://www.qubiq.es",
     "author": "QubiQ, Odoo Community Association (OCA)",
     "license": "AGPL-3",
@@ -16,6 +16,7 @@
         "security/ir.model.access.csv",
         'views/product_pack_lines.xml',
         'reports/report_pack_template.xml',
-        'reports/report.xml'
+        'reports/report.xml',
+        'views/sale_order.xml',
     ],
 }
