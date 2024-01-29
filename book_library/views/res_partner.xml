@@ -18,6 +18,12 @@
                 <field name="partner_number" invisible="partner == False"/>
                 <field name="author" position="after"/>
                 <field name="genre_ids" position="after" invisible="author == False"/>
+                <header>
+                    <button name="singup" string="Singup" class="oe_highlight" type="object" invisible="partner == True"/>
+                    <button name="signout" string="DropOut" type="object" invisible="partner == False"/>
+                </header>
+
+
             </xpath>
         </field>
     </record>
