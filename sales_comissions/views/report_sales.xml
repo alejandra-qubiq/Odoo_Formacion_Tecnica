@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <template id="custom_report_sale_document" inherit_id="sale.report_saleorder_document">
+        <!-- 5º Caso de usuario-->
+        <xpath expr="//p[@t-field='doc.user_id']" position="replace">
+            <p t-esc="', '.join(doc.commission_line_ids.mapped('name').mapped('name'))"/>
+        </xpath>
+    </template>
+</odoo>
