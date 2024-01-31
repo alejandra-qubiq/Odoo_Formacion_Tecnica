@@ -7,7 +7,7 @@ class CommissionLines(models.Model):
     _name = "commission.lines"
     _description = "Commission lines"
 
-    name = fields.Many2one(
+    partner_id = fields.Many2one(
         string='User',
         comodel_name='res.partner',
         domain=[("is_sales_person", "=", True)]
@@ -20,8 +20,8 @@ class CommissionLines(models.Model):
         string='%',
         compute='_compute_field', readonly=False, store=True)
 
-    @api.depends('name')
+    @api.depends('partner_id')
     def _compute_field(self):
         for record in self:
-            record.commission = record.name.commission if record.name else 0.0
+            record.commission = record.partner_id.commission if record.partner_id else 0.0
 
