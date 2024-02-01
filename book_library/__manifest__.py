@@ -25,5 +25,6 @@
         'views/library_book_genre.xml',
         'views/library_book_component_line.xml',
         'views/book_library_menus.xml',
+        'views/book_borrowing.xml',
     ],
 }

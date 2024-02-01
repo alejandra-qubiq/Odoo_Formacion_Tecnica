@@ -7,6 +7,10 @@ from odoo.exceptions import UserError
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    total_sales = fields.Float(compute='_compute_total_sales', compute_sudo=True, string='Total Sales', store=False)
+    borrowed_books_count = fields.Integer(compute="_compute_borrowed_books_count")
+    borrowed_books = fields.Many2many('book.borrowing', string='Borrowed Books', store=False)
+
     first_name = fields.Char(
         compute='_compute_full_name',
         readonly=False, store=True
@@ -15,6 +19,7 @@ class ResPartner(models.Model):
         compute='_compute_full_name',
         readonly=False, store=True
     )
+
     partner = fields.Boolean(
         string='Library partner'
     )
@@ -34,6 +39,7 @@ class ResPartner(models.Model):
     _sql_constraints = [
         ('partner_number_unique', 'unique (partner_number,company_id)', 'The Library Partner Code of contact must be unique per company !')
     ]
+    author_books_ids = fields.One2many('book.library', 'author_id', string='Books')
 
     def singup(self):
         self.write({'partner': True})
@@ -70,3 +76,35 @@ class ResPartner(models.Model):
         self.ensure_one()
         return self.env['book.borrowing'].search([('partner_id', '=', self.id),
                                               ('state', '=', 'borrowed')])
+
+    def _compute_borrowed_books_count(self):
+        book_borrowing = self.env['book.borrowing']
+        for partner in self:
+            borrowed_books = book_borrowing.search([('partner_id', '=', partner.id)])
+            partner.borrowed_books_count = len(borrowed_books)
+            partner.borrowed_books = borrowed_books
+
+    def action_view_borrowed_books(self):
+        # Tu lógica aquí
+        return {
+            'name': 'Borrowed Books',
+            'type': 'ir.actions.act_window',
+            'res_model': 'book.borrowing',
+            'view_mode': 'tree,form',
+            'domain': [('partner_id', '=', self.id)],
+        }
+# @api.depends('author', 'books', 'books.rent_line_ids')
+#     def _compute_available_book(self):
+#         for partner in self:
+#             available_books = partner.books.filtered(
+#                 lambda book: book.author_id.id == partner.id
+#                              and book.qty_available > 0
+#                              and book.type == 'printed'
+#                              and book.id not in partner.books.ids
+#             )
+#             partner.available_book_id = available_books[:1]
+
+    @api.depends('author_books_ids')
+    def _compute_total_sales(self):
+        for author in self:
+            author.total_sales = sum(author.author_books_ids.mapped(lambda book: book.price * book.qty_borrowed))

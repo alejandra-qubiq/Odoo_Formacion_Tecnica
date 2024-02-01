@@ -10,7 +10,7 @@
             <group name="commission" string="Commission">
                 <field name="commission_line_ids">
                     <tree editable="bottom">
-                        <field name="name" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}"/>
+                        <field name="partner_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}"/>
                         <field name="commission"/>
                     </tree>
                 </field>

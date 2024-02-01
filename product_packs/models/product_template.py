@@ -30,9 +30,8 @@ class ProductTemplate(models.Model):
     def _compute_price(self):
         for line in self:
             if line.price_pack_method == "component_total":
-                total = 0.0
+                line.total_price = self.list_price
                 for component in line.component_line_ids:
-                    total += component.price*component.quantity
-                line.total_price = total
+                    line.total_price += component.price
             else:
                 line.total_price = line.list_price

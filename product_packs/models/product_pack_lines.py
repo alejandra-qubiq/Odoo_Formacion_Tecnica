@@ -17,11 +17,13 @@ class ProductPackLines(models.Model):
     )
     quantity = fields.Integer(
         string="Quantity",
+        default=1
     )
     price = fields.Float(
         string="Price",
     )
 
-    @api.onchange('component_id')
+    @api.onchange('component_id', 'quantity')
     def onchange_component_id(self):
-        self.price = self.component_id.list_price
+        for sel in self:
+            sel.price = sel.component_id.list_price * sel.quantity

@@ -118,6 +118,7 @@
             </p>
         </field>
     </record>
+    
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="book_library_menu_act" web_icon ="book_library,static/menu_icon.png" name="Book Library" action="book_library_action" sequence="10"/>
 

@@ -16,13 +16,12 @@ class SaleOrderLines(models.Model):
 
     @api.onchange('pack_id')
     def _onchange_pack_id(self):
-        if self.contains_packs and self.pack_id:
+        if self.pack_id:
             self.order_line = False
             for product in self.pack_id.component_line_ids:
-                print('aqui', self.id)
+
                 self.env['sale.order.line'].new({
                     'product_id': product.component_id.id,
                     'order_id': self.id,
                     'product_uom_qty': product.quantity
                 })
-                print(self.id)
