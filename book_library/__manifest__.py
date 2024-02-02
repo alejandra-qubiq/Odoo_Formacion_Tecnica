@@ -17,6 +17,7 @@
         'reports/reports.xml',
         'reports/report_book_custom.xml',
         'reports/sale_report_inherit.xml',
+        'reports/report_borrowed_books.xml',
         'security/security.xml',
         'views/library_audit.xml',
         'views/res_partner.xml',
@@ -24,5 +25,6 @@
         'views/library_book_genre.xml',
         'views/library_book_component_line.xml',
         'views/book_library_menus.xml',
+        'views/book_borrowing.xml',
     ],
 }

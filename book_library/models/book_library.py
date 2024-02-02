@@ -62,6 +62,23 @@ class BookLibrary(models.Model):
     published_year = fields.Integer(
         string='Published year',
     )
+    rent_line_ids = fields.One2many(
+        comodel_name="book.borrowing",
+        inverse_name="book_id",
+        string="Loans"
+    )
+    qty_total = fields.Integer(string='Quantity on Hand')
+    qty_borrowed = fields.Integer(string='Quantity Borrowed',
+                                  compute="_compute_qty")
+    qty_available = fields.Integer(string="Quantity Available",
+                                   compute="_compute_qty")
+
+    @api.depends('qty_total', 'rent_line_ids')
+    def _compute_qty(self):
+        for rec in self:
+            rec.qty_borrowed = len(self.rent_line_ids.filtered(
+                lambda x: x.state == 'borrowed'))
+            rec.qty_available = rec.qty_total - rec.qty_borrowed
 
     @api.onchange('is_pack')
     def _onchange_is_pack(self):

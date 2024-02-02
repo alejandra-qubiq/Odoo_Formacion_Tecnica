@@ -8,17 +8,36 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-        <!-- Add your xpath here company-->
+             <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" icon="fa-book" type="object"  name="action_view_borrowed_books">
+                    <field string="Borrowed Books" name="borrowed_books_count" widget="statinfo" invisible='borrowed_books_count== 0'/>
+                </button>
+            </div>
+
             <xpath expr="//field[@name='name']" position="after">
-                <field name="first_name"/>
-                <field name="last_name"/>
+                <header>
+                    <button name="singup" string="Singup" class="oe_highlight" type="object" invisible="partner == True"/>
+                    <button name="signout" string="DropOut" type="object" invisible="partner == False"/>
+                </header>
+                    <field name="first_name" placeholder="First Name"/>
+                    <field name="last_name" placeholder="Last Name"/>
             </xpath>
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="partner"/>
                 <field name="partner_number" invisible="partner == False"/>
                 <field name="author" position="after"/>
-                <field name="genre_ids" position="after" invisible="author == False"/>
+                <field name='total_sales' invisible="author == False"/>
             </xpath>
+            <notebook>
+            <page string="Genres" >
+                <field name="genre_ids" position="after" invisible="author == False"/>
+            </page>
+            </notebook>
+            <notebook>
+            <page string="Books" >
+                <field name="author_books_ids" widget="many2many" invisible="author == False"/>
+            </page>
+            </notebook>
         </field>
     </record>
 
@@ -50,6 +69,14 @@
                 There arent any authors
             </p>
         </field>
+    </record>
+    <record id="action_view_borrowed_books" model="ir.actions.act_window">
+        <field name="name">Borrowed Books</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">book.borrowing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('partner_id', '=', partner_id)]</field>
+        <field name="context">{'search_default_partner_id': [partner_id]}</field>
     </record>
 
 
